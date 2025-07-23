@@ -123,16 +123,25 @@
 
     }
 
+
+}
+
+.hero__cta h2 {
+    position: relative;
+
     &::before {
         content: "🎉";
         font-size: 4rem;
         position: absolute;
-        top: -2rem;
-        left: -1rem;
+        top: -60px;
+        left: -70px;
+
+        @media (max-width: 767px) {
+            top: -90px;
+            left: -40px;
+        }
     }
 }
-
-.hero__cta h2 {}
 
 .hero__cta-btn {
     background: $accent;
@@ -274,7 +283,7 @@
     }
 
     @media (max-width: 767px) {
-        padding: 6rem 1rem;
+        padding: 5rem 1rem;
 
         flex-direction: column;
 
