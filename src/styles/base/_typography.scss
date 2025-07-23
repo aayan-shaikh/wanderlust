@@ -1,0 +1,56 @@
+// Fluid typography system
+@function fluid-size($min, $max, $min-vw: 320, $max-vw: 1200) {
+  $slope: calc(($max - $min) / ($max-vw - $min-vw));
+  $intersection: calc(-1 * $min-vw * $slope + $min);
+  @return clamp(#{$min}rem, #{$intersection}rem + #{$slope * 100}vw, #{$max}rem);
+}
+
+h1 {
+  font-size: fluid-size(2.5, 4);
+  font-family: $font-primary;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: $space-md;
+  color: $secondary;
+}
+
+h2 {
+  font-size: fluid-size(2, 3);
+  font-family: $font-primary;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: $space-md;
+  color: $secondary;
+}
+
+h3 {
+  font-size: fluid-size(1.5, 2.25);
+  font-family: $font-primary;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: $space-sm;
+  color: $secondary;
+}
+
+h4 {
+  font-size: fluid-size(1.25, 1.75);
+  font-family: $font-primary;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: $space-sm;
+  color: $secondary;
+}
+
+p {
+  font-size: fluid-size(1, 1.125);
+  margin-bottom: $space-md;
+  color: $secondary;
+}
+
+code {
+  background: $surface;
+  color: $secondary;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

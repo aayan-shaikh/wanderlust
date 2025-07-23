@@ -1,0 +1,39 @@
+// Colors
+$primary: #F25621; // Tropical Teal - main brand color
+$secondary: #e2e2e2; // Sunset Coral - energy/warmth
+$accent: #F8BF08; // Golden Hour - CTA buttons/highlights
+$text-primary: #e2e2e2; // Island White - primary text
+$text-secondary: #F7E7CE; // Sandy Beige - secondary text
+$text-dark: #1c1c1c; // Deep Ocean - dark text/contrast
+$background: #eeee; // Island White - main background
+$surface: #4ECDC4; // Palm Green - surface elements
+
+// Additional Brand Colors
+$coral: #FF6B6B; // Sunset Coral
+$teal-light: #4ECDC4; // Palm Green
+$teal-dark: #006B5C; // Deep Ocean
+$beige: #F7E7CE; // Sandy Beige
+$purple: #9B59B6; // Party Purple
+$yellow: #FFD93D; // Golden Hour
+
+// Typography
+$font-primary: 'Bespoke Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-secondary: 'Expose', Arial, sans-serif;
+
+// Layout
+$max-width: 1200px;
+$border-radius: 8px;
+
+// Spacing
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2rem;
+$space-xl: 3rem;
+$space-xxl: 4rem;
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;

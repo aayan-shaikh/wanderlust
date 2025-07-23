@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/_home.scss";
+---
+
+<BaseLayout title="Home | Wanderlust">
+  <div id="home-container">
+    <section id="hero">
+      <div class="image-container">
+        <img src="shoreline.jpeg" alt="" />
+      </div>
+      <div class="hero__content">
+        <h1>Welcome to Paradise, Fellow Wanderers! 🏝️</h1>
+        <p>
+          Your lively home base in Koh Phangan awaits! Just 5 minutes from
+          Thongsala Pier and a quick stroll to the beach, Wanderlust Hostel is
+          where unforgettable memories begin.
+        </p>
+        <p class="hero__card">Party. Connect. Explore. Repeat.</p>
+        <div class="hero__cta">
+          <h2>Ready for good vibes and new friendships?</h2>
+          <button class="hero__cta-btn btn btn--accent"
+            >Book your bed now</button
+          >
+        </div>
+      </div>
+    </section>
+    <section id="why-us">
+      <div class="why-us__cards">
+        <div class="why-us__card">
+          <h3>🌊 Perfect Location</h3>
+          <p>
+            5 minutes from pier, 5-minute walk to beach. Koh Phangan's
+            best-connected spot!
+          </p>
+        </div>
+        <div class="why-us__card">
+          <h3>🎵 Social Vibes</h3>
+          <p>
+            Music until midnight, poolside bar, and fellow travelers from around
+            the globe.
+          </p>
+        </div>
+        <div class="why-us__card">
+          <h3>🛏️ Comfort Guaranteed</h3>
+          <p>
+            Clean AC dorms, capsule options, female-only rooms, and 24/7
+            security.
+          </p>
+        </div>
+        <div class="why-us__card">
+          <h3>🏊‍♀️ Epic Amenities</h3>
+          <p>
+            5 minutes from pier, 5-minute walk to beach. Koh Phangan's
+            best-connected spot!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="edgar">
+      <div class="edgar__text">
+        <h2>Meet Our Legend: Edgar!</h2>
+        <p class="edgar__subtitle">
+          From volunteer to the coolest manager in Southeast Asia
+        </p>
+        <p class="edgar__content">
+          <em>
+            "5 years ago, I arrived as a wide-eyed volunteer from Izmir. Now I'm
+            living my dream managing this incredible community. Every day brings
+            new faces, new stories, and new adventures. That's the Wanderlust
+            magic!" - Edgar
+          </em>
+        </p>
+      </div>
+      <div class="edgar__image-container">
+        <img src="edgar.jpg" alt="" />
+      </div>
+    </section>
+    <section id="meet-the-team">
+      <div class="cards">
+        <div class="card">
+          <img src="Fang.jpg" alt="Wanderlust Team 1" class="card__image" />
+          <h3 class="card__title">Fang</h3>
+          <p class="card__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+            consequuntur.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="https://placehold.co/400"
+            alt="Wanderlust Team 2"
+            class="card__image"
+          />
+          <h3 class="card__title">Shine</h3>
+          <p class="card__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+            consequuntur.
+          </p>
+        </div>
+        <div class="card">
+          <img src="edgar.jpg" alt="Wanderlust Team 3" class="card__image" />
+          <h3 class="card__title">Edgar</h3>
+          <p class="card__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+            consequuntur.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // Optimized parallax effect for your hero section
+  let ticking = false;
+
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const heroSection = document.getElementById("hero");
+
+    if (!heroSection) return;
+
+    const heroHeight = heroSection.offsetHeight;
+    const imageContainer = heroSection.querySelector(".image-container");
+    const heroContent = heroSection.querySelector(".hero__content");
+
+    // Only apply parallax when hero section is in view
+    if (scrolled < heroHeight) {
+      // Background image moves slower (creates depth)
+      if (imageContainer) {
+        const imageSpeed = scrolled * 0.4;
+        imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
+      }
+
+      // Content moves slightly slower than normal scroll
+      if (heroContent) {
+        const contentSpeed = scrolled * 0.2;
+        heroContent.style.transform = `translate3d(0, ${contentSpeed}px, 0)`;
+      }
+    }
+
+    ticking = false;
+  }
+
+  // Throttled scroll listener for better performance
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  });
+
+  // Optional: Reduce parallax on mobile for better performance
+  // if (window.innerWidth <= 768) {
+  //   window.addEventListener("scroll", () => {
+  //     if (!ticking) {
+  //       const scrolled = window.pageYOffset;
+  //       const heroSection = document.getElementById("hero");
+
+  //       if (heroSection && scrolled < heroSection.offsetHeight) {
+  //         const imageContainer = heroSection.querySelector(".image-container");
+  //         if (imageContainer) {
+  //           const imageSpeed = scrolled * 0.2; // Reduced speed on mobile
+  //           imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
+  //         }
+  //       }
+  //       ticking = false;
+  //     }
+  //     requestAnimationFrame(() => {
+  //       ticking = false;
+  //     });
+  //   });
+  // }
+</script>

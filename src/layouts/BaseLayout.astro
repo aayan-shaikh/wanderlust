@@ -1,0 +1,185 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+import "../styles/main.scss";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "#" },
+  { name: "Contact", href: "#" },
+];
+
+const { title, description = "Built with Astro and SCSS" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link
+      rel="prefetch"
+      href="https://api.fontshare.com/v2/css?f[]=bespoke-sans@300,301,400,401,500,501,700,701,800,801,1,2&f[]=expose@400,500,700,900,1&display=swap"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=bespoke-sans@300,301,400,401,500,501,700,701,800,801,1,2&f[]=expose@400,500,700,900,1&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <a href="/" class="navbar__logo">
+          <span class="navbar__logo-icon">🎉</span>
+          Wanderlust
+        </a>
+
+        <ul class="navbar__menu" id="navMenu">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a class="navbar__link" href={link.href}>
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="navbar__cta">
+          <a
+            style="color:white; background:#1c1c1c "
+            href="https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966?guests=2&from=2025-07-24&to=2025-07-25"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--accent btn--outline">Book</a
+          >
+        </div>
+
+        <button
+          class="navbar__hamburger"
+          id="hamburger"
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="overlay"></div>
+
+    <main>
+      <div class="madeby">
+        Made with ❤️ by <a href="https://github.com/aayan-shaikh">Aayan</a>
+      </div>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__column">
+            <h3>About</h3>
+            <p>
+              Create amazing memories and experiences with Wanderlust
+              Ko-Pha-Ngan.
+            </p>
+            <a
+              style="color:white; background:#1c1c1c "
+              href="https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966?guests=2&from=2025-07-24&to=2025-07-25"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--accent btn--outline">Book</a
+            >
+          </div>
+
+          <div class="footer__column">
+            <h3>Links</h3>
+            <ul>
+              {
+                navLinks.map((link) => (
+                  <li>
+                    <a href={link.href}>{link.name}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div class="footer__column">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <a href="mailto:edjer@wanderlust.com">edjer@wanderlust.com</a>
+              </li>
+              <li><a href="tel:+1 (234) 567-890">+1 (234) 567-890</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+      const overlay = document.getElementById("overlay");
+
+      hamburger?.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        overlay.classList.toggle("active");
+      });
+
+      overlay?.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>
+<style lang="scss">
+  .madeby {
+    color: white;
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+    }
+
+    user-select: none;
+    mix-blend-mode: luminosity;
+
+    z-index: 1;
+    text-transform: capitalize;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    padding: 0.5rem 1rem;
+    background: rgba($color: grey, $alpha: 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    outline: 1px solid rgba($color: grey, $alpha: 0.2);
+
+    @media (max-width: 1024px) {
+      left: 50%;
+      right: auto;
+      width: max-content;
+      /* Important: Override the default 'right' property */
+      transform: translateX(-50%);
+    }
+  }
+</style>
