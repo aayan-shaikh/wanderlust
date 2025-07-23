@@ -265,7 +265,13 @@ p.hero__rating {
 
 // EDGAR
 #edgar {
-    background: darken(#E30A17, 20%);
+    background: url("pattern.jpg"), darken(#E30A17, 20%);
+    background-size: 400px 400px;
+    background-repeat: repeat;
+    background-blend-mode: soft-light;
+
+
+
     display: flex;
     padding: 6rem 12rem;
     align-items: center;
