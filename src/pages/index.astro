@@ -112,8 +112,13 @@ import "../styles/pages/_home.scss";
 </BaseLayout>
 
 <script>
-  // Optimized parallax effect for your hero section
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    ) || window.innerWidth <= 768;
+
   let ticking = false;
+  let scrollPos = 0;
 
   function updateParallax() {
     const scrolled = window.pageYOffset;
@@ -125,17 +130,15 @@ import "../styles/pages/_home.scss";
     const imageContainer = heroSection.querySelector(".image-container");
     const heroContent = heroSection.querySelector(".hero__content");
 
-    // Only apply parallax when hero section is in view
     if (scrolled < heroHeight) {
-      // Background image moves slower (creates depth)
       if (imageContainer) {
-        const imageSpeed = scrolled * 0.4;
+        // Reduce parallax intensity on mobile
+        const imageSpeed = scrolled * (isMobile ? 0.1 : 0.4);
         imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
       }
 
-      // Content moves slightly slower than normal scroll
       if (heroContent) {
-        const contentSpeed = scrolled * 0.2;
+        const contentSpeed = scrolled * (isMobile ? 0.05 : 0.2);
         heroContent.style.transform = `translate3d(0, ${contentSpeed}px, 0)`;
       }
     }
@@ -143,33 +146,52 @@ import "../styles/pages/_home.scss";
     ticking = false;
   }
 
-  // Throttled scroll listener for better performance
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  });
+  // Use different event handling for mobile
+  if (isMobile) {
+    // For mobile: use touchmove for immediate response
+    let touchStartY = 0;
 
-  // Optional: Reduce parallax on mobile for better performance
-  // if (window.innerWidth <= 768) {
-  //   window.addEventListener("scroll", () => {
-  //     if (!ticking) {
-  //       const scrolled = window.pageYOffset;
-  //       const heroSection = document.getElementById("hero");
+    window.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartY = e.touches[0].clientY;
+      },
+      { passive: true },
+    );
 
-  //       if (heroSection && scrolled < heroSection.offsetHeight) {
-  //         const imageContainer = heroSection.querySelector(".image-container");
-  //         if (imageContainer) {
-  //           const imageSpeed = scrolled * 0.2; // Reduced speed on mobile
-  //           imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
-  //         }
-  //       }
-  //       ticking = false;
-  //     }
-  //     requestAnimationFrame(() => {
-  //       ticking = false;
-  //     });
-  //   });
-  // }
+    window.addEventListener(
+      "touchmove",
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
+
+    // Also keep scroll listener as fallback
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
+  } else {
+    // Desktop scroll handling
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
+  }
 </script>

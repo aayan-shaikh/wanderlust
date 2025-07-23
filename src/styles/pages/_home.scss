@@ -110,16 +110,16 @@
     background: rgba($primary, 0.6);
     border-radius: $border-radius;
     padding: 2rem 3rem;
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
 
     transition: backdrop-filter, background 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 
     &:hover,
     &:focus,
     &:active {
-        background: rgba($primary, 0.4);
+        // background: rgba($primary, 0.4);
 
-        backdrop-filter: blur(10px);
+        // backdrop-filter: blur(10px);
 
     }
 
