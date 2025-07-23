@@ -2,7 +2,7 @@
   max-width: $max-width;
   margin: 0 auto;
   padding: 0 $space-lg;
-  
+
   @media (max-width: $bp-md) {
     padding: 0 $space-md;
   }
@@ -10,7 +10,7 @@
 
 .section {
   padding: $space-xxl 0;
-  
+
   @media (max-width: $bp-md) {
     padding: $space-xl 0;
   }
@@ -19,4 +19,13 @@
 main {
   padding-top: 80px;
   min-height: 100vh;
+}
+
+body {
+  background:
+    url("pattern.jpg"),
+    $primary;
+  background-size: 120px 120px;
+  background-repeat: repeat;
+  background-blend-mode: soft-light;
 }

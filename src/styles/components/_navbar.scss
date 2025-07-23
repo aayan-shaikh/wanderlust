@@ -11,8 +11,9 @@
 
   &.scrolled {
     padding-top: 0.5rem;
-    background: rgba($primary, 0.98);
+    background: rgba($primary, 0.6);
     box-shadow: 0 2px 20px rgba(black, 0.1);
+    backdrop-filter: blur(10px);
   }
 
   .container {
