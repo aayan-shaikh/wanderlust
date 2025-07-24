@@ -221,7 +221,7 @@ p.hero__rating {
 #why-us {
     position: relative;
     padding: 6rem 12rem;
-    background-image: url("beachpattern.jpg");
+    background-image: url("/beachpattern.jpg");
     background-size: 400px 400px;
     background-repeat: repeat;
     background-color: darken($primary, 20%);
@@ -232,7 +232,7 @@ p.hero__rating {
 
     // Mobile fallback for background-blend-mode
     @media (max-width: 768px) {
-        background: linear-gradient(rgba(darken($primary, 20%), 0.8), rgba(darken($primary, 20%), 0.8)), url("beachpattern.jpg");
+        background: linear-gradient(rgba(darken($primary, 20%), 0.8), rgba(darken($primary, 20%), 0.8)), url("/beachpattern.jpg");
         background-size: 400px 400px;
         background-repeat: repeat;
     }
@@ -282,15 +282,15 @@ p.hero__rating {
 
 // EDGAR
 #edgar {
-    background-image: url("pattern.jpg");
+    background-image: url("/pattern.jpg");
     background-size: 400px 400px;
     background-repeat: repeat;
     background-color: darken(#E30A17, 37%);
     background-blend-mode: soft-light;
-    
+
     // Mobile fallback for background-blend-mode
     @media (max-width: 768px) {
-        background: linear-gradient(rgba(darken(#E30A17, 37%), 0.7), rgba(darken(#E30A17, 37%), 0.7)), url("pattern.jpg");
+        background: linear-gradient(rgba(darken(#E30A17, 37%), 0.7), rgba(darken(#E30A17, 37%), 0.7)), url("/pattern.jpg");
         background-size: 400px 400px;
         background-repeat: repeat;
     }
