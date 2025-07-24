@@ -351,6 +351,11 @@ p.hero__rating {
 #meet-the-team {
     background-color: $text-dark;
 
+    .meet-the-team__title {
+        color: $text-primary;
+        margin-bottom: 3rem;
+    }
+
     .cards {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -360,11 +365,13 @@ p.hero__rating {
             background-color: darken($accent, 1%);
             border-radius: $border-radius;
             padding: 1rem 4rem 2rem;
-            box-shadow: 0px 5px 10px rgba($accent, 0.2);
+            box-shadow: 0px 0px 10px rgba($accent, 0.9);
             outline: 1px solid darken($accent, 3%);
 
             img {
                 border-radius: 50%;
+                box-shadow: 0px 0px 25px rgba($text-dark, 0.4);
+
                 aspect-ratio: 1/1;
             }
 
