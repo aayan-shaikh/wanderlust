@@ -12,7 +12,7 @@ import { Image } from "@unpic/astro";
       </div>
       <div class="hero__content">
         <p class="hero__rating">⭐️ 8.9 Fabulous - Hostel World</p>
-        <h1>Welcome to Paradise, Fellow Wanderers! 🏝️</h1>
+        <h1 class="hero__title">Welcome to Paradise, Fellow Wanderers! 🏝️</h1>
         <p class="hero__description">
           Your lively home base in Koh Phangan awaits! Just 5 minutes from
           Thongsala Pier and a quick stroll to the beach, Wanderlust Hostel is
@@ -116,7 +116,91 @@ import { Image } from "@unpic/astro";
     </section>
   </div>
 </BaseLayout>
+<!-- Load GSAP libraries with is:inline -->
+<script
+  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+  is:inline></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"
+  is:inline></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+  is:inline></script>
 
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
+
+    // Define the texts for the top 5 most popular languages
+    const texts = [
+      "ยินดีต้อนรับสู่สวรรค์!",
+      "Willkommen im Paradies!",
+      "Chào mừng đến với Thiên đường!",
+      "Welkom in het paradijs!",
+      "Welcome to Paradise!",
+      "Cennete hoş geldiniz!",
+      "Добро пожаловать в рай!",
+      "Bienvenidos al paraíso!",
+      "Bienvenue au paradis!",
+      "स्वर्ग में आपका स्वागत है",
+      "欢迎来到天堂!",
+    ];
+
+    const title = document.querySelector(".hero__title");
+
+    if (title) {
+      let lastIndex = -1; // Track the last used index to avoid repeats
+
+      function getRandomText() {
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * texts.length);
+        } while (randomIndex === lastIndex && texts.length > 1); // Avoid repeating the same text
+
+        lastIndex = randomIndex;
+        return texts[randomIndex];
+      }
+
+      function animateRandomText() {
+        const randomText = getRandomText();
+
+        // Create individual timeline for each animation
+        const tl = gsap.timeline({
+          onComplete: () => {
+            // Wait a bit then start the next random animation
+            setTimeout(animateRandomText, 1000);
+          },
+        });
+
+        tl.to(title, {
+          duration: 1,
+          scrambleText: {
+            text: randomText,
+            chars: "💦🕶️☀️👙", // Scramble characters
+            revealDelay: 0.5,
+            tweenLength: false,
+            speed: 0.3,
+          },
+        }).to(
+          title,
+          {
+            duration: 0.5,
+            opacity: 0,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsap.set(title, { opacity: 1 });
+            },
+          },
+          "+=1", // Hold each text for 1 second before fading
+        );
+      }
+
+      // Start the random animation cycle
+      animateRandomText();
+    }
+  });
+</script>
 <script>
   const isMobile =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
