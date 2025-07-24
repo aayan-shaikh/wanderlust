@@ -9,6 +9,7 @@
     "preview": "astro build && astro preview --host"
   },
   "dependencies": {
+    "@unpic/astro": "^1.0.0",
     "astro": "^5.9.1",
     "sass": "^1.89.1"
   },

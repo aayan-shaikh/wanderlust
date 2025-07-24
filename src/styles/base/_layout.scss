@@ -22,10 +22,12 @@ main {
 }
 
 body {
-  background:
-    url("pattern.jpg"),
-    $primary;
-  background-size: 120px 120px;
-  background-repeat: repeat;
-  background-blend-mode: soft-light;
+  background: $primary;
+  // background:
+  //   url("pattern.jpg"),
+  //   rgba($color: #000000, $alpha: 0.8);
+  // background-size: 1200px 1200px;
+  // background-repeat: repeat;
+  // background-blend-mode: soft-light;
+
 }

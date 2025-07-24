@@ -13,6 +13,7 @@
 
 
 #home-container {
+    transform: translate3d(0, 0, 0);
     margin-inline: auto;
 
     p,
@@ -218,34 +219,49 @@ p.hero__rating {
 // WHY US?
 
 #why-us {
-    background: $text-dark;
+    position: relative;
     padding: 6rem 12rem;
+    background-image: url("beachpattern.jpg");
+    background-size: 400px 400px;
+    background-repeat: repeat;
+    background-color: darken($primary, 20%);
+    background-blend-mode: overlay;
+    box-shadow: inset 0px 0px 25px rgba(#000000, 1);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    margin-bottom: -100px;
+
+    // Mobile fallback for background-blend-mode
+    @media (max-width: 768px) {
+        background: linear-gradient(rgba(darken($primary, 20%), 0.8), rgba(darken($primary, 20%), 0.8)), url("beachpattern.jpg");
+        background-size: 400px 400px;
+        background-repeat: repeat;
+    }
 
     .why-us__cards {
         display: grid;
         gap: 0.5rem;
         grid-template-columns: 2fr 1fr;
         align-items: center;
-
     }
 
     .why-us__card {
+        will-change: filter;
         display: grid;
         grid-template-columns: subgrid;
         grid-template-rows: subgrid;
-
+        backdrop-filter: blur(10px);
         border-radius: $border-radius;
         padding: 1rem 2rem;
-        background: lighten($text-dark, 5%);
-        transition: background 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        background: lighten(rgba($text-dark, 0.5), 5%);
+        filter: blur(5px);
+        transition: filter 0.3s ease;
+
+        &.in-view {
+            filter: blur(0px);
+        }
 
         p {
             padding-top: 6rem;
-        }
-
-        &:hover {
-            background: lighten($text-dark, 8%);
-
         }
     }
 
@@ -259,16 +275,25 @@ p.hero__rating {
                 padding-top: 4rem;
             }
         }
-
     }
 }
 
+
+
 // EDGAR
 #edgar {
-    background: url("pattern.jpg"), darken(#E30A17, 20%);
+    background-image: url("pattern.jpg");
     background-size: 400px 400px;
     background-repeat: repeat;
+    background-color: darken(#E30A17, 37%);
     background-blend-mode: soft-light;
+    
+    // Mobile fallback for background-blend-mode
+    @media (max-width: 768px) {
+        background: linear-gradient(rgba(darken(#E30A17, 37%), 0.7), rgba(darken(#E30A17, 37%), 0.7)), url("pattern.jpg");
+        background-size: 400px 400px;
+        background-repeat: repeat;
+    }
 
 
 

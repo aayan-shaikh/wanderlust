@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/pages/_home.scss";
+import { Image } from "@unpic/astro";
 ---
 
-<BaseLayout title="Home | Wanderlust">
+<BaseLayout title="Wanderlust Lust Hostel | Koh Phangan Home">
   <div id="home-container">
     <section id="hero">
       <div class="image-container">
-        <img src="shoreline.jpeg" alt="" />
+        <Image src="shoreline.jpeg" alt="" />
       </div>
       <div class="hero__content">
         <p class="hero__rating">⭐️ 8.9 Fabulous - Hostel World</p>
@@ -78,13 +79,13 @@ import "../styles/pages/_home.scss";
         </p>
       </div>
       <div class="edgar__image-container">
-        <img src="edgar.jpg" alt="" />
+        <Image src="edgar.jpg" alt="" />
       </div>
     </section>
     <section id="meet-the-team">
       <div class="cards">
         <div class="card">
-          <img src="Fang.jpg" alt="Wanderlust Team 1" class="card__image" />
+          <Image src="Fang.jpg" alt="Wanderlust Team 1" class="card__image" />
           <h3 class="card__title">Fang</h3>
           <p class="card__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -104,7 +105,7 @@ import "../styles/pages/_home.scss";
           </p>
         </div>
         <div class="card">
-          <img src="edgar.jpg" alt="Wanderlust Team 3" class="card__image" />
+          <Image src="edgar.jpg" alt="Wanderlust Team 3" class="card__image" />
           <h3 class="card__title">Edgar</h3>
           <p class="card__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -151,6 +152,42 @@ import "../styles/pages/_home.scss";
     ticking = false;
   }
 
+  // Scroll-driven blur animation for why-us cards
+  function updateBlurAnimation() {
+    const cards = document.querySelectorAll(".why-us__card");
+    const windowHeight = window.innerHeight;
+
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+
+      // Check if card is in viewport
+      const isInViewport = rect.top < windowHeight && rect.bottom > 0;
+
+      if (!isInViewport) {
+        card.style.filter = "blur(8px)";
+        return;
+      }
+
+      // Calculate visibility percentage (0 = not visible, 1 = fully visible)
+      const visibleTop = Math.max(0, -rect.top);
+      const visibleBottom = Math.min(rect.height, windowHeight - rect.top);
+      const visibleHeight = visibleBottom - visibleTop;
+      const visibilityRatio = visibleHeight / rect.height;
+
+      // More aggressive unblur - starts unblurring when 30% visible
+      let blurAmount;
+      if (visibilityRatio > 0.3) {
+        // Rapid unblur when significantly visible
+        const unblurProgress = Math.min((visibilityRatio - 0.6) / 0.4, 1);
+        blurAmount = 8 * (1 - unblurProgress);
+      } else {
+        blurAmount = 8;
+      }
+
+      card.style.filter = `blur(${Math.max(0, blurAmount)}px)`;
+    });
+  }
+
   // Use different event handling for mobile
   if (isMobile) {
     // For mobile: use touchmove for immediate response
@@ -168,7 +205,10 @@ import "../styles/pages/_home.scss";
       "touchmove",
       () => {
         if (!ticking) {
-          requestAnimationFrame(updateParallax);
+          requestAnimationFrame(() => {
+            updateParallax();
+            updateBlurAnimation();
+          });
           ticking = true;
         }
       },
@@ -180,7 +220,10 @@ import "../styles/pages/_home.scss";
       "scroll",
       () => {
         if (!ticking) {
-          requestAnimationFrame(updateParallax);
+          requestAnimationFrame(() => {
+            updateParallax();
+            updateBlurAnimation();
+          });
           ticking = true;
         }
       },
@@ -192,11 +235,17 @@ import "../styles/pages/_home.scss";
       "scroll",
       () => {
         if (!ticking) {
-          requestAnimationFrame(updateParallax);
+          requestAnimationFrame(() => {
+            updateParallax();
+            updateBlurAnimation();
+          });
           ticking = true;
         }
       },
       { passive: true },
     );
   }
+
+  // Initial blur animation setup
+  updateBlurAnimation();
 </script>
