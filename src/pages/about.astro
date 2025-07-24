@@ -10,28 +10,43 @@ import "../styles/pages/_about.scss";
         <a href="#special" class="float-nav-item">🏠</a>
         <a href="#pro-tip" class="float-nav-item">💡</a>
     </div>
-    
+
     <div id="about-container">
         <nav id="about-contents" class="about-nav">
             <ul class="nav-list">
                 <li class="nav-item">
                     <a href="#about-story" class="nav-link">Our Story</a>
                     <ul class="sub-nav">
-                        <li><a href="#about-story" class="sub-link">Introduction</a></li>
-                        <li><a href="#our-vibe" class="sub-link">Our Vibe</a></li>
+                        <li>
+                            <a href="#about-story" class="sub-link"
+                                >Introduction</a>
+                        </li>
+                        <li>
+                            <a href="#our-vibe" class="sub-link">Our Vibe</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#about-edgar" class="nav-link">Our Manager</a>
                     <ul class="sub-nav">
-                        <li><a href="#about-edgar" class="sub-link">Meet Edgar</a></li>
-                        <li><a href="#edgar-journey" class="sub-link">His Journey</a></li>
+                        <li>
+                            <a href="#about-edgar" class="sub-link"
+                                >Meet Edgar</a>
+                        </li>
+                        <li>
+                            <a href="#edgar-journey" class="sub-link"
+                                >His Journey</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#special" class="nav-link">What Makes Us Special</a>
+                    <a href="#special" class="nav-link">What Makes Us Special</a
+                    >
                     <ul class="sub-nav">
-                        <li><a href="#accommodation" class="sub-link">Accommodation</a></li>
+                        <li>
+                            <a href="#accommodation" class="sub-link"
+                                >Accommodation</a>
+                        </li>
                         <li><a href="#pro-tip" class="sub-link">Pro Tip</a></li>
                     </ul>
                 </li>
@@ -47,7 +62,7 @@ import "../styles/pages/_about.scss";
                     efficiency with laid-back island vibes, creating something
                     truly special on Koh Phangan.
                 </p>
-                <img src="hostel-pool.jpeg" alt="" />
+                <img src="/hostel-pool.jpeg" alt="" />
 
                 <h2 id="our-vibe">Our Vibe</h2>
                 <div class="vibe-cards">
@@ -174,23 +189,28 @@ import "../styles/pages/_about.scss";
 
 <script>
     // Highlight active section in floating nav
-    const sections = ['about-story', 'about-edgar', 'special', 'pro-tip'];
-    const floatNavItems = document.querySelectorAll('.float-nav-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const sectionId = entry.target.id;
-                const index = sections.indexOf(sectionId);
-                if (index !== -1) {
-                    floatNavItems.forEach(item => item.classList.remove('active'));
-                    floatNavItems[index]?.classList.add('active');
+    const sections = ["about-story", "about-edgar", "special", "pro-tip"];
+    const floatNavItems = document.querySelectorAll(".float-nav-item");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    const index = sections.indexOf(sectionId);
+                    if (index !== -1) {
+                        floatNavItems.forEach((item) =>
+                            item.classList.remove("active"),
+                        );
+                        floatNavItems[index]?.classList.add("active");
+                    }
                 }
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    sections.forEach(id => {
+            });
+        },
+        { threshold: 0.3 },
+    );
+
+    sections.forEach((id) => {
         const element = document.getElementById(id);
         if (element) observer.observe(element);
     });
