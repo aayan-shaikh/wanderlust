@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/_contact.scss";
+---
+
+<BaseLayout title="Contact Us or Volunteer | Wanderlust Hostel Koh Phangan">
+    <div id="contact-container">
+        <section id="contact-hero">
+            <div class="contact-hero__content">
+                <h1>Get in Touch! 🏝️</h1>
+                <p class="hero-subtitle">
+                    Ready to start your Koh Phangan adventure as a guest or
+                    volunteer? We're here to help!
+                </p>
+            </div>
+        </section>
+
+        <section id="contact-main">
+            <div class="contact-grid">
+                <div class="contact-form-section">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dates">Travel Dates</label>
+                            <input
+                                type="text"
+                                id="dates"
+                                name="dates"
+                                placeholder="When are you visiting?"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4+ Guests</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                placeholder="Tell us about your plans, questions, or special requests..."
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--accent"
+                            >Send Message 🚀</button
+                        >
+                    </form>
+                </div>
+
+                <div class="contact-info-section">
+                    <div class="contact-card">
+                        <h3>📍 Find Us</h3>
+                        <p>
+                            123 Beach Road<br />
+                            Thongsala, Koh Phangan<br />
+                            Surat Thani 84280, Thailand
+                        </p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>📞 Call Us</h3>
+                        <p>
+                            +66 77 123 456<br />
+                            Available 24/7 for emergencies
+                        </p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>✉️ Email Us</h3>
+                        <p>
+                            hello@wanderlust-hostel.com<br />
+                            bookings@wanderlust-hostel.com
+                        </p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>🕒 Reception Hours</h3>
+                        <p>
+                            Check-in: 2:00 PM - 10:00 PM<br />
+                            Check-out: 8:00 AM - 12:00 PM<br />
+                            Front Desk: 24/7
+                        </p>
+                    </div>
+
+                    <div class="contact-card social-card">
+                        <h3>🌐 Follow Us</h3>
+                        <div class="social-links">
+                            <!-- <a href="#" class="social-link">📘 Facebook</a> -->
+                            <a
+                                href="https://www.instagram.com/wanderlustkohphangan/"
+                                class="social-link">📷 Instagram</a
+                            >
+                            <!-- <a href="#" class="social-link">🐦 Twitter</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-cta">
+            <div class="cta-content">
+                <h2>Ready to Book? 🎉</h2>
+                <p>Skip the form and book directly through our partners!</p>
+                <div class="cta-buttons">
+                    <a
+                        href="https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966?guests=2&from=2025-07-24&to=2025-07-25"
+                        class="btn btn--primary">Book on Hostelworld</a
+                    >
+                </div>
+            </div>
+        </section>
+    </div>
+</BaseLayout>

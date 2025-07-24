@@ -1,0 +1,256 @@
+// Imports
+@import '../core/variables';
+@import '../base/reset';
+@import '../base/typography';
+@import '../base/layout';
+@import '../components/buttons';
+@import '../components/navbar';
+@import '../components/footer';
+
+// Mixins
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+// Base styles
+body {
+    background: url("/beachpattern.jpg"), darken($primary, 20%);
+    background-size: 400px 400px;
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+    box-shadow: inset 0px 0px 25px rgba(#000000, 1);
+
+    // Mobile fallback for background-blend-mode
+    @media (max-width: 768px) {
+        background: linear-gradient(rgba(darken(#E30A17, 37%), 0.7), rgba(darken(#E30A17, 37%), 0.7)), url("/pattern.jpg");
+        background-size: 400px 400px;
+        background-repeat: repeat;
+    }
+}
+
+// Contact container
+#contact-container {
+    min-height: 100vh;
+    padding-top: 120px;
+}
+
+// Hero section
+#contact-hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba($primary, 0.1);
+    margin-bottom: 4rem;
+
+    .contact-hero__content {
+        max-width: 600px;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: $text-primary;
+            text-shadow: 2px 2px 8px rgba(#000000, 0.7);
+
+            @include mobile {
+                font-size: 2rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: $text-secondary;
+        }
+    }
+}
+
+// Main contact section
+#contact-main {
+    padding: 0 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+// Form section
+.contact-form-section {
+    background: lighten($primary, 5%);
+    padding: 3rem;
+    border-radius: $border-radius;
+    border: 3px dashed darken($primary, 5%);
+    box-shadow: 0 8px 32px rgba(#000000, 0.3);
+
+    @include mobile {
+        padding: 2rem;
+    }
+
+    h2 {
+        color: $text-primary;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+}
+
+.contact-form {
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            color: $text-primary;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid transparent;
+            border-radius: $border-radius;
+            background: rgba($text-primary, 0.9);
+            color: $text-dark;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $accent;
+                box-shadow: 0 0 0 3px rgba($accent, 0.2);
+            }
+
+            &::placeholder {
+                color: rgba($text-dark, 0.6);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+}
+
+// Contact info section
+.contact-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-card {
+    background: rgba($accent, 0.1);
+    padding: 2rem;
+    border-radius: $border-radius;
+    border: 2px solid rgba($accent, 0.3);
+    backdrop-filter: blur(10px);
+
+    h3 {
+        color: $accent;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: $text-primary;
+        line-height: 1.6;
+    }
+
+    &.social-card {
+        background: rgba($secondary, 0.1);
+        border-color: rgba($secondary, 0.3);
+
+        h3 {
+            color: $secondary;
+        }
+    }
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .social-link {
+        color: $text-primary;
+        text-decoration: none;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+// CTA section
+#contact-cta {
+    background: rgba($text-dark, 0.8);
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: 4rem;
+
+    .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+
+        h2 {
+            color: $accent;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+
+            @include mobile {
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            color: $text-primary;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+
+            @include mobile {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    }
+}
