@@ -4,14 +4,17 @@ export interface Props {
   description?: string;
 }
 import "../styles/main.scss";
-
+// import { ClientRouter } from "astro:transitions";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
-const { title, description = "Built with Astro and SCSS" } = Astro.props;
+const {
+  title = "Wanderlust Hostel Koh Phangan | Social Party Hostel Thailand",
+  description = "Top-rated social hostel in Koh Phangan, Thailand. 5 minutes from Thongsala Pier, perfect for Full Moon Party. Clean dorms, pool bar, 24/7 security. Book your island adventure!",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -20,6 +23,88 @@ const { title, description = "Built with Astro and SCSS" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="keywords"
+      content="Koh Phangan hostel, Thailand backpacker accommodation, Full Moon Party hostel, Thongsala pier hostel, budget travel Thailand, social hostel Koh Phangan, party hostel Thailand, backpacker Koh Phangan, island hostel Thailand"
+    />
+    <meta name="author" content="Wanderlust Hostel Koh Phangan" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://wanderlust-hostel.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wanderlust-hostel.com" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://wanderlust-hostel.com/hostel-pool.jpeg"
+    />
+    <meta property="og:site_name" content="Wanderlust Hostel Koh Phangan" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://wanderlust-hostel.com" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content="https://wanderlust-hostel.com/hostel-pool.jpeg"
+    />
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Wanderlust Hostel Koh Phangan",
+        "description": "Social party hostel in Koh Phangan, Thailand. 5 minutes from Thongsala Pier, perfect for Full Moon Party and island exploration.",
+        "url": "https://wanderlust-hostel.com",
+        "telephone": "+66 94 891 4361",
+        "email": "hello@wanderlust-hostel.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "140 16, Ban Tai",
+          "addressLocality": "Koh Phangan",
+          "addressRegion": "Surat Thani",
+          "postalCode": "84280",
+          "addressCountry": "TH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "9.7384",
+          "longitude": "100.0077"
+        },
+        "priceRange": "$",
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Pool" },
+          { "@type": "LocationFeatureSpecification", "name": "Bar" },
+          { "@type": "LocationFeatureSpecification", "name": "24/7 Security" },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Air Conditioning"
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Female-Only Rooms"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "8.9",
+          "reviewCount": "500+",
+          "bestRating": "10",
+          "worstRating": "1"
+        },
+        "sameAs": [
+          "https://www.instagram.com/wanderlustkohphangan/",
+          "https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966"
+        ]
+      }
+    </script>
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <link
       rel="prefetch"
@@ -33,6 +118,7 @@ const { title, description = "Built with Astro and SCSS" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <!-- <ClientRouter /> -->
     <nav class="navbar" id="navbar">
       <div class="container">
         <a href="/" class="navbar__logo">

@@ -232,7 +232,7 @@ p.hero__rating {
 #why-us {
     position: relative;
     padding: 6rem 12rem;
-    background-image: url("/beachpattern.jpg");
+    background-image: url("https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753424422/beachpattern_owx95z.jpg");
     background-size: 400px 400px;
     background-repeat: repeat;
     background-color: darken($primary, 20%);
@@ -243,7 +243,7 @@ p.hero__rating {
 
     // Mobile fallback for background-blend-mode
     @media (max-width: 768px) {
-        background: linear-gradient(rgba(darken($primary, 20%), 0.8), rgba(darken($primary, 20%), 0.8)), url("/beachpattern.jpg");
+        background: linear-gradient(rgba(darken($primary, 20%), 0.8), rgba(darken($primary, 20%), 0.8)), url("https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753424422/pattern_nf2og5.jpg");
         background-size: 400px 400px;
         background-repeat: repeat;
     }
@@ -318,6 +318,8 @@ p.hero__rating {
             border-radius: 50%;
             outline: 3px solid white;
             object-fit: cover;
+            aspect-ratio: 1;
+            width: 800px;
 
         }
     }

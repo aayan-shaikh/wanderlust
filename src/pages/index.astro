@@ -1,14 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/pages/_home.scss";
-import { Image } from "@unpic/astro";
+// import { Image } from "astro";
+import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 ---
 
-<BaseLayout title="Wanderlust Lust Hostel | Koh Phangan Home">
+<BaseLayout 
+  title="Wanderlust Hostel Koh Phangan | Best Party Hostel Thailand | Full Moon Party"
+  description="#1 rated party hostel in Koh Phangan! 5 minutes from Thongsala Pier, pool bar, clean AC dorms. Perfect base for Full Moon Party & island exploration. Book now!"
+>
   <div id="home-container">
     <section id="hero">
       <div class="image-container">
-        <Image src="shoreline.jpeg" alt="" />
+        <CldImage
+          src="https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753424422/shoreline_quyc37.jpg"
+          alt=""
+        />
       </div>
       <div class="hero__content">
         <p class="hero__rating">⭐️ 8.9 Fabulous - Hostel World</p>
@@ -79,7 +87,9 @@ import { Image } from "@unpic/astro";
         </p>
       </div>
       <div class="edgar__image-container">
-        <Image src="edgar.jpg" alt="" />
+        <img
+          src="https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753430810/edgardj_uvzxoz.gif"
+        />
       </div>
     </section>
     <section id="meet-the-team">
