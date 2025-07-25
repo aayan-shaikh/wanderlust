@@ -248,10 +248,10 @@ const {
     user-select: none;
     mix-blend-mode: luminosity;
 
-    z-index: 1;
+    z-index: 9999999;
     text-transform: capitalize;
     position: fixed;
-    bottom: 40px;
+    bottom: 20px;
     right: 30px;
     padding: 0.5rem 1rem;
     background: rgba($color: grey, $alpha: 0.1);
@@ -264,7 +264,7 @@ const {
       right: auto;
       width: max-content;
       /* Important: Override the default 'right' property */
-      transform: translateX(-0%);
+      transform: translateX(-50%);
     }
   }
 </style>
