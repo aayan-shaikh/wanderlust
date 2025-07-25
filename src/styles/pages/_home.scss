@@ -99,6 +99,17 @@ p.hero__rating {
 .hero__content h1 {
     margin-bottom: 1.5rem;
     line-height: 1;
+    min-height: 10vh;
+    display: flex;
+
+    align-items: center;
+
+    @media (max-width:767px) {
+        margin-bottom: 0rem;
+        // text-align: center;
+        min-height: 16vh;
+
+    }
 }
 
 .hero__description {

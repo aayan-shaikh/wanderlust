@@ -10,9 +10,9 @@
   transition: all 0.3s ease;
 
   &.scrolled {
-    padding-top: 0.5rem;
+    // padding-top: 0.5rem;
     background: rgba($primary, 0.6);
-    box-shadow: 0 2px 20px rgba(black, 0.1);
+    // box-shadow: 0 2px 20px rgba(black, 0.1);
     backdrop-filter: blur(10px);
   }
 
@@ -22,6 +22,7 @@
     justify-content: space-between;
     padding-top: $space-md;
     padding-bottom: $space-md;
+
   }
 
   &__logo {
@@ -42,19 +43,22 @@
     display: flex;
     gap: $space-lg;
 
+
     @media (max-width: $bp-lg) {
       position: fixed;
       top: 0;
       right: -100%;
       width: 300px;
       height: 100vh;
-      background: $primary;
+      background: rgba($primary, 0.8);
       flex-direction: column;
       justify-content: center;
       align-items: center;
       transition: right 0.3s ease;
 
       &.active {
+        backdrop-filter: blur(10px);
+
         right: 0;
       }
     }

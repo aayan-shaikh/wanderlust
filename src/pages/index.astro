@@ -22,7 +22,7 @@ import { Image } from "@unpic/astro";
         <div class="hero__cta">
           <h2>Ready for good vibes and new friendships?</h2>
           <a
-            href="https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966?guests=2&from=2025-07-24&to=2025-07-25"
+            href="https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966?guests=2"
           >
             <button class="hero__cta-btn btn btn--accent"
               >Book your bed now</button
@@ -170,30 +170,30 @@ import { Image } from "@unpic/astro";
         const tl = gsap.timeline({
           onComplete: () => {
             // Wait a bit then start the next random animation
-            setTimeout(animateRandomText, 1000);
+            setTimeout(animateRandomText, 500);
           },
         });
 
         tl.to(title, {
-          duration: 1,
+          duration: 2,
           scrambleText: {
             text: randomText,
-            chars: "💦🕶️☀️👙", // Scramble characters
-            revealDelay: 0.5,
+            chars: "💦🕶️☀️👙🌊🇹🇭", // Scramble characters
+            revealDelay: 0,
             tweenLength: false,
-            speed: 0.3,
+            speed: 0.1,
           },
         }).to(
           title,
           {
             duration: 0.5,
-            opacity: 0,
+            opacity: 1,
             ease: "power2.inOut",
             onComplete: () => {
               gsap.set(title, { opacity: 1 });
             },
           },
-          "+=1", // Hold each text for 1 second before fading
+          "+=0", // Hold each text for 1 second before fading
         );
       }
 

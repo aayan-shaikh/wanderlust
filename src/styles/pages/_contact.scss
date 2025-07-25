@@ -246,6 +246,7 @@ body {
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
+            color: $text-dark !important;
 
             @include mobile {
                 width: 100%;
