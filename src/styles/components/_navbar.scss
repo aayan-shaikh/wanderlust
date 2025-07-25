@@ -34,6 +34,10 @@
     font-size: 1.5rem;
     color: $text-primary;
 
+    @media (max-width: $bp-lg) {
+      line-height: 1;
+    }
+
     &-icon {
       color: $accent;
     }
