@@ -309,7 +309,7 @@ p.hero__rating {
 
 
     display: flex;
-    padding: 6rem 12rem;
+    padding: 7rem 12rem;
     align-items: center;
 
     .edgar__image-container {
@@ -371,8 +371,10 @@ p.hero__rating {
 
     .cards {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        padding-inline:
+            8rem;
 
         .card {
             background-color: darken($accent, 1%);

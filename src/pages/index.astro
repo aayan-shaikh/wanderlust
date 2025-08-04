@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 ---
 
 <BaseLayout
-  title="Kikos Hostel Koh Phangan | Best Social Hostel Thailand | Full Moon Party"
+  title="Kiko'ss Hostel Koh Phangan | Best Social Hostel Thailand | Full Moon Party"
   description="#1 rated social hostel in Koh Phangan! 5 minutes from Thongsala Pier, clean AC dorms, modern social vibe. Perfect base for Full Moon Party & island exploration. Book direct!"
 >
   <!-- Performance hints in head via BaseLayout slots (preconnect + preload LCP) -->
@@ -107,7 +107,7 @@ import { Image } from "astro:assets";
           <em>
             "5 years ago, I arrived as a wide-eyed volunteer from Izmir. Now I'm
             living my dream managing this incredible community. Every day brings
-            new faces, new stories, and new adventures. That's the Kikos magic!"
+            new faces, new stories, and new adventures. That's the Kiko's magic!"
             - Edgar
           </em>
         </p>
@@ -119,7 +119,7 @@ import { Image } from "astro:assets";
           src="/edgardj.mp4"
           loop
           decoding="async"
-          autoplay
+          autoPlay
           muted
           loading="lazy"
           alt="Edgar at Kiko’s Hostel"></video>
@@ -127,14 +127,14 @@ import { Image } from "astro:assets";
     </section>
 
     <section id="meet-the-team">
-      <h2 class="meet-the-team__title">Meet the Kikos Team!</h2>
+      <h2 class="meet-the-team__title">Meet the Kiko's Team!</h2>
       <div class="cards">
         <div class="card">
           <img
             src="/compressed/Fang.avif"
             width="500"
             height="500"
-            alt="Fang from the Kikos team"
+            alt="Fang from the Kiko's team"
             class="card__image"
             loading="lazy"
             decoding="async"
@@ -146,24 +146,24 @@ import { Image } from "astro:assets";
             src="/compressed/shine.avif"
             width="500"
             height="500"
-            alt="Shine from the Kikos team"
+            alt="Shine from the Kiko's team"
             class="card__image"
             loading="lazy"
             decoding="async"
           />
           <h3 class="card__title">Shine</h3>
         </div>
-        <div class="card">
+        <!-- <div class="card">
           <Image
             src="/compressed/edgar.avif"
             width={500}
             height={500}
-            alt="Edgar from the Kikos team"
+            alt="Edgar from the Kiko's team"
             class="card__image"
             loading="lazy"
           />
           <h3 class="card__title">Edgar</h3>
-        </div>
+        </div> -->
       </div>
     </section>
   </div>
@@ -196,16 +196,16 @@ import { Image } from "astro:assets";
         gsap.registerPlugin(ScrambleTextPlugin);
 
         const texts = [
-          "ยินดีต้อนรับสู่สวรรค์!",
+          // "ยินดีต้อนรับสู่สวรรค์!",
           "Willkommen im Paradies!",
-          "Chào mừng đến với Thiên đường!",
+          // "Chào mừng đến với Thiên đường!",
           "Welkom in het paradijs!",
           "Welcome to Paradise!",
-          "Cennete hoş geldiniz!",
+          // "Cennete hoş geldiniz!",
           "Bienvenidos al paraíso!",
           "Bienvenue au paradis!",
-          "स्वर्ग में आपका स्वागत है",
-          "欢迎来到天堂!",
+          // "स्वर्ग में आपका स्वागत है",
+          // "欢迎来到天堂!",
         ];
 
         const title = document.querySelector(".hero__title");
@@ -225,16 +225,15 @@ import { Image } from "astro:assets";
           const randomText = getRandomText();
           gsap
             .timeline({
-              onComplete: () => setTimeout(animateRandomText, 500),
+              onComplete: () => setTimeout(animateRandomText, 1000),
             })
             .to(title, {
-              duration: 1.2,
+              duration: 5,
               scrambleText: {
                 text: randomText,
                 chars: "🐶🐾",
-                revealDelay: 0,
-                tweenLength: false,
-                speed: 0.1,
+                // tweenLength: true,
+                speed: 0.01,
               },
             });
         }

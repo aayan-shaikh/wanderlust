@@ -246,12 +246,13 @@ iframe {
             align-items: center;
         }
 
-        .btn {
+        .btn button {
             padding: 1rem 2rem;
+            background: $text-primary;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
-            color: $text-primary !important;
+            color: $text-dark !important;
 
             @include mobile {
                 width: 100%;
