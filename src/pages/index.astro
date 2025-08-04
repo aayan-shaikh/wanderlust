@@ -6,8 +6,8 @@ import { Image } from "astro:assets";
 import { CldImage } from "astro-cloudinary";
 ---
 
-<BaseLayout 
-  title="Wanderlust Hostel Koh Phangan | Best Party Hostel Thailand | Full Moon Party"
+<BaseLayout
+  title="Kikos Hostel Koh Phangan | Best Party Hostel Thailand | Full Moon Party"
   description="#1 rated party hostel in Koh Phangan! 5 minutes from Thongsala Pier, pool bar, clean AC dorms. Perfect base for Full Moon Party & island exploration. Book now!"
 >
   <div id="home-container">
@@ -19,18 +19,18 @@ import { CldImage } from "astro-cloudinary";
         />
       </div>
       <div class="hero__content">
-        <p class="hero__rating">⭐️ 8.9 Fabulous - Hostel World</p>
+        <p class="hero__rating">Social but not a party hostel</p>
         <h1 class="hero__title">Welcome to Paradise, Fellow Wanderers! 🏝️</h1>
         <p class="hero__description">
-          Your lively home base in Koh Phangan awaits! Just 5 minutes from
-          Thongsala Pier and a quick stroll to the beach, Wanderlust Hostel is
-          where unforgettable memories begin.
+          A short walk from Thong Sala Pier, Night Market, Phangan Food Court,
+          Art Market, and the beach - Kiko’s Hostel is the perfect base to
+          explore the island, no scooter needed.
         </p>
-        <p class="hero__card">Party. Connect. Explore. Repeat.</p>
+        <p class="hero__card">Comfort. Cleanliness. Community.</p>
         <div class="hero__cta">
           <h2>Ready for good vibes and new friendships?</h2>
           <a
-            href="https://www.hostelworld.com/pwa/hosteldetails.php/The-Wanderlust-Hostel/Koh-Phangan/272966?guests=2"
+            href="https://www.booking.com/hotel/th/kikos-hostel.en-gb.html?aid=304142&dest_id=14693517&dest_type=hotel&group_adults=2&group_children=0&label=gen173bo-10CAEoggI46AdIM1gDaKkBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBmAICqAIBuAKsisHEBsACAdICJGFmN2UyNjQ0LWQ1YTctNDJjMy1hYmE0LTFhNzU3YTMwOTNjMtgCAeACAQ-Share-ZTuD1Z%401754287045&no_rooms=1&req_adults=2&req_children=0"
           >
             <button class="hero__cta-btn btn btn--accent"
               >Book your bed now</button
@@ -40,33 +40,35 @@ import { CldImage } from "astro-cloudinary";
       </div>
     </section>
     <section id="why-us">
+      <h2>Why Choose Kiko’s?</h2>
       <div class="why-us__cards">
         <div class="why-us__card">
           <h3>🌊 Perfect Location</h3>
           <p>
-            5 minutes from pier, 5-minute walk to beach. Koh Phangan's
-            best-connected spot!
+            Walk to the pier, markets, and the beach. The island at your
+            doorstep.
           </p>
         </div>
         <div class="why-us__card">
-          <h3>🎵 Social Vibes</h3>
+          <h3>🧑‍🤝‍🧑 Social, Not a Party Hostel</h3>
           <p>
             Music until midnight, poolside bar, and fellow travelers from around
             the globe.
           </p>
         </div>
         <div class="why-us__card">
-          <h3>🛏️ Comfort Guaranteed</h3>
+          <h3>🛏️ Modern Comfort</h3>
           <p>
-            Clean AC dorms, capsule options, female-only rooms, and 24/7
-            security.
+            Newly decorated dorms with privacy curtains, reading lights, key
+            card access, and A/C.
           </p>
         </div>
         <div class="why-us__card">
-          <h3>🏊‍♀️ Epic Amenities</h3>
+          <h3>☕ Easy Essentials</h3>
           <p>
-            5 minutes from pier, 5-minute walk to beach. Koh Phangan's
-            best-connected spot!
+            Indoor lounge with Smart TV, outdoor terrace, and a communal
+            kitchenette (microwave, big fridge, hot/cold water) plus free tea
+            and coffee all day.
           </p>
         </div>
       </div>
@@ -81,8 +83,8 @@ import { CldImage } from "astro-cloudinary";
           <em>
             "5 years ago, I arrived as a wide-eyed volunteer from Izmir. Now I'm
             living my dream managing this incredible community. Every day brings
-            new faces, new stories, and new adventures. That's the Wanderlust
-            magic!" - Edgar
+            new faces, new stories, and new adventures. That's the Kikos magic!"
+            - Edgar
           </em>
         </p>
       </div>
@@ -93,10 +95,16 @@ import { CldImage } from "astro-cloudinary";
       </div>
     </section>
     <section id="meet-the-team">
-      <h2 class="meet-the-team__title">Meet the Wanderlust Team!</h2>
+      <h2 class="meet-the-team__title">Meet the Kikos Team!</h2>
       <div class="cards">
         <div class="card">
-          <Image src="Fang.jpg" alt="Wanderlust Team 1" class="card__image" />
+          <Image
+            src="/Fang.jpg"
+            width={500}
+            height="500"
+            alt="Kikos Team 1"
+            class="card__image"
+          />
           <h3 class="card__title">Fang</h3>
           <!-- <p class="card__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -104,11 +112,7 @@ import { CldImage } from "astro-cloudinary";
           </p> -->
         </div>
         <div class="card">
-          <img
-            src="https://placehold.co/400"
-            alt="Wanderlust Team 2"
-            class="card__image"
-          />
+          <img src="shine.jpg" alt="Kikos Team 2" class="card__image" />
           <h3 class="card__title">Shine</h3>
           <!-- <p class="card__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -116,7 +120,13 @@ import { CldImage } from "astro-cloudinary";
           </p> -->
         </div>
         <div class="card">
-          <Image src="edgar.jpg" alt="Wanderlust Team 3" class="card__image" />
+          <Image
+            src="/edgar.jpg"
+            width={500}
+            height="500"
+            alt="Kikos Team 3"
+            class="card__image"
+          />
           <h3 class="card__title">Edgar</h3>
           <!-- <p class="card__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -126,221 +136,223 @@ import { CldImage } from "astro-cloudinary";
       </div>
     </section>
   </div>
-</BaseLayout>
-<!-- Load GSAP libraries with is:inline -->
-<script
-  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
-  is:inline></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"
-  is:inline></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
-  is:inline></script>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Register GSAP plugins
-    gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
+  <!-- Load GSAP libraries with is:inline -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+    is:inline></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"
+    is:inline></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+    is:inline></script>
 
-    // Define the texts for the top 5 most popular languages
-    const texts = [
-      "ยินดีต้อนรับสู่สวรรค์!",
-      "Willkommen im Paradies!",
-      "Chào mừng đến với Thiên đường!",
-      "Welkom in het paradijs!",
-      "Welcome to Paradise!",
-      "Cennete hoş geldiniz!",
-      // "Добро пожаловать в рай!",
-      "Bienvenidos al paraíso!",
-      "Bienvenue au paradis!",
-      "स्वर्ग में आपका स्वागत है",
-      "欢迎来到天堂!",
-    ];
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Register GSAP plugins
+      gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
 
-    const title = document.querySelector(".hero__title");
+      // Define the texts for the top 5 most popular languages
+      const texts = [
+        "ยินดีต้อนรับสู่สวรรค์!",
+        "Willkommen im Paradies!",
+        "Chào mừng đến với Thiên đường!",
+        "Welkom in het paradijs!",
+        "Welcome to Paradise!",
+        "Cennete hoş geldiniz!",
+        // "Добро пожаловать в рай!",
+        "Bienvenidos al paraíso!",
+        "Bienvenue au paradis!",
+        "स्वर्ग में आपका स्वागत है",
+        "欢迎来到天堂!",
+      ];
 
-    if (title) {
-      let lastIndex = -1; // Track the last used index to avoid repeats
+      const title = document.querySelector(".hero__title");
 
-      function getRandomText() {
-        let randomIndex;
-        do {
-          randomIndex = Math.floor(Math.random() * texts.length);
-        } while (randomIndex === lastIndex && texts.length > 1); // Avoid repeating the same text
+      if (title) {
+        let lastIndex = -1; // Track the last used index to avoid repeats
 
-        lastIndex = randomIndex;
-        return texts[randomIndex];
-      }
+        function getRandomText() {
+          let randomIndex;
+          do {
+            randomIndex = Math.floor(Math.random() * texts.length);
+          } while (randomIndex === lastIndex && texts.length > 1); // Avoid repeating the same text
 
-      function animateRandomText() {
-        const randomText = getRandomText();
+          lastIndex = randomIndex;
+          return texts[randomIndex];
+        }
 
-        // Create individual timeline for each animation
-        const tl = gsap.timeline({
-          onComplete: () => {
-            // Wait a bit then start the next random animation
-            setTimeout(animateRandomText, 500);
-          },
-        });
+        function animateRandomText() {
+          const randomText = getRandomText();
 
-        tl.to(title, {
-          duration: 2,
-          scrambleText: {
-            text: randomText,
-            chars: "💦🕶️☀️👙🌊🇹🇭", // Scramble characters
-            revealDelay: 0,
-            tweenLength: false,
-            speed: 0.1,
-          },
-        }).to(
-          title,
-          {
-            duration: 0.5,
-            opacity: 1,
-            ease: "power2.inOut",
+          // Create individual timeline for each animation
+          const tl = gsap.timeline({
             onComplete: () => {
-              gsap.set(title, { opacity: 1 });
+              // Wait a bit then start the next random animation
+              setTimeout(animateRandomText, 500);
             },
-          },
-          "+=0", // Hold each text for 1 second before fading
-        );
+          });
+
+          tl.to(title, {
+            duration: 2,
+            scrambleText: {
+              text: randomText,
+              chars: "🐶🐾", // Scramble characters
+              // chars: "💦🕶️☀️👙🌊🇹🇭", // Scramble characters
+              revealDelay: 0,
+              tweenLength: false,
+              speed: 0.1,
+            },
+          }).to(
+            title,
+            {
+              duration: 0.5,
+              opacity: 1,
+              ease: "power2.inOut",
+              onComplete: () => {
+                gsap.set(title, { opacity: 1 });
+              },
+            },
+            "+=0" // Hold each text for 1 second before fading
+          );
+        }
+
+        // Start the random animation cycle
+        animateRandomText();
       }
-
-      // Start the random animation cycle
-      animateRandomText();
-    }
-  });
-</script>
-<script>
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    ) || window.innerWidth <= 768;
-
-  let ticking = false;
-  let scrollPos = 0;
-
-  function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const heroSection = document.getElementById("hero");
-
-    if (!heroSection) return;
-
-    const heroHeight = heroSection.offsetHeight;
-    const imageContainer = heroSection.querySelector(".image-container");
-    const heroContent = heroSection.querySelector(".hero__content");
-
-    if (scrolled < heroHeight) {
-      if (imageContainer) {
-        // Reduce parallax intensity on mobile
-        const imageSpeed = scrolled * (isMobile ? 0.1 : 0.4);
-        imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
-      }
-
-      if (heroContent) {
-        const contentSpeed = scrolled * (isMobile ? 0.05 : 0.2);
-        heroContent.style.transform = `translate3d(0, ${contentSpeed}px, 0)`;
-      }
-    }
-
-    ticking = false;
-  }
-
-  // Scroll-driven blur animation for why-us cards
-  function updateBlurAnimation() {
-    const cards = document.querySelectorAll(".why-us__card");
-    const windowHeight = window.innerHeight;
-
-    cards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-
-      // Check if card is in viewport
-      const isInViewport = rect.top < windowHeight && rect.bottom > 0;
-
-      if (!isInViewport) {
-        card.style.filter = "blur(8px)";
-        return;
-      }
-
-      // Calculate visibility percentage (0 = not visible, 1 = fully visible)
-      const visibleTop = Math.max(0, -rect.top);
-      const visibleBottom = Math.min(rect.height, windowHeight - rect.top);
-      const visibleHeight = visibleBottom - visibleTop;
-      const visibilityRatio = visibleHeight / rect.height;
-
-      // More aggressive unblur - starts unblurring when 30% visible
-      let blurAmount;
-      if (visibilityRatio > 0.3) {
-        // Rapid unblur when significantly visible
-        const unblurProgress = Math.min((visibilityRatio - 0.6) / 0.4, 1);
-        blurAmount = 8 * (1 - unblurProgress);
-      } else {
-        blurAmount = 8;
-      }
-
-      card.style.filter = `blur(${Math.max(0, blurAmount)}px)`;
     });
-  }
+  </script>
+  <script>
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      ) || window.innerWidth <= 768;
 
-  // Use different event handling for mobile
-  if (isMobile) {
-    // For mobile: use touchmove for immediate response
-    let touchStartY = 0;
+    let ticking = false;
+    let scrollPos = 0;
 
-    window.addEventListener(
-      "touchstart",
-      (e) => {
-        touchStartY = e.touches[0].clientY;
-      },
-      { passive: true },
-    );
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+      const heroSection = document.getElementById("hero");
 
-    window.addEventListener(
-      "touchmove",
-      () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            updateParallax();
-            updateBlurAnimation();
-          });
-          ticking = true;
+      if (!heroSection) return;
+
+      const heroHeight = heroSection.offsetHeight;
+      const imageContainer = heroSection.querySelector(".image-container");
+      const heroContent = heroSection.querySelector(".hero__content");
+
+      if (scrolled < heroHeight) {
+        if (imageContainer) {
+          // Reduce parallax intensity on mobile
+          const imageSpeed = scrolled * (isMobile ? 0.1 : 0.4);
+          imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
         }
-      },
-      { passive: true },
-    );
 
-    // Also keep scroll listener as fallback
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            updateParallax();
-            updateBlurAnimation();
-          });
-          ticking = true;
+        if (heroContent) {
+          const contentSpeed = scrolled * (isMobile ? 0.05 : 0.2);
+          heroContent.style.transform = `translate3d(0, ${contentSpeed}px, 0)`;
         }
-      },
-      { passive: true },
-    );
-  } else {
-    // Desktop scroll handling
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            updateParallax();
-            updateBlurAnimation();
-          });
-          ticking = true;
-        }
-      },
-      { passive: true },
-    );
-  }
+      }
 
-  // Initial blur animation setup
-  updateBlurAnimation();
-</script>
+      ticking = false;
+    }
+
+    // Scroll-driven blur animation for why-us cards
+    function updateBlurAnimation() {
+      const cards = document.querySelectorAll(".why-us__card");
+      const windowHeight = window.innerHeight;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+
+        // Check if card is in viewport
+        const isInViewport = rect.top < windowHeight && rect.bottom > 0;
+
+        if (!isInViewport) {
+          card.style.filter = "blur(8px)";
+          return;
+        }
+
+        // Calculate visibility percentage (0 = not visible, 1 = fully visible)
+        const visibleTop = Math.max(0, -rect.top);
+        const visibleBottom = Math.min(rect.height, windowHeight - rect.top);
+        const visibleHeight = visibleBottom - visibleTop;
+        const visibilityRatio = visibleHeight / rect.height;
+
+        // More aggressive unblur - starts unblurring when 30% visible
+        let blurAmount;
+        if (visibilityRatio > 0.3) {
+          // Rapid unblur when significantly visible
+          const unblurProgress = Math.min((visibilityRatio - 0.6) / 0.4, 1);
+          blurAmount = 8 * (1 - unblurProgress);
+        } else {
+          blurAmount = 8;
+        }
+
+        card.style.filter = `blur(${Math.max(0, blurAmount)}px)`;
+      });
+    }
+
+    // Use different event handling for mobile
+    if (isMobile) {
+      // For mobile: use touchmove for immediate response
+      let touchStartY = 0;
+
+      window.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartY = e.touches[0].clientY;
+        },
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "touchmove",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              updateParallax();
+              updateBlurAnimation();
+            });
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+
+      // Also keep scroll listener as fallback
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              updateParallax();
+              updateBlurAnimation();
+            });
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+    } else {
+      // Desktop scroll handling
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              updateParallax();
+              updateBlurAnimation();
+            });
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+    }
+
+    // Initial blur animation setup
+    updateBlurAnimation();
+  </script>
+</BaseLayout>

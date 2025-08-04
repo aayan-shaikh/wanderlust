@@ -155,7 +155,7 @@ p.hero__rating {
     position: relative;
 
     &::before {
-        content: "🎉";
+        content: "🧘🏻‍♂️";
         font-size: 4rem;
         position: absolute;
         top: -60px;
@@ -235,7 +235,7 @@ p.hero__rating {
     background-image: url("https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753424422/beachpattern_owx95z.jpg");
     background-size: 400px 400px;
     background-repeat: repeat;
-    background-color: darken($primary, 20%);
+    background-color: darken($primary, 5%);
     background-blend-mode: overlay;
     box-shadow: inset 0px 0px 25px rgba(#000000, 1);
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
@@ -296,12 +296,12 @@ p.hero__rating {
     background-image: url("/pattern.jpg");
     background-size: 400px 400px;
     background-repeat: repeat;
-    background-color: darken(#E30A17, 37%);
+    background-color: darken($primary, 5%);
     background-blend-mode: soft-light;
 
     // Mobile fallback for background-blend-mode
     @media (max-width: 768px) {
-        background: linear-gradient(rgba(darken(#E30A17, 37%), 0.7), rgba(darken(#E30A17, 37%), 0.7)), url("/pattern.jpg");
+        background: linear-gradient(rgba(darken($primary, 37%), 0.7), rgba(darken($primary, 37%), 0.7)), url("/pattern.jpg");
         background-size: 400px 400px;
         background-repeat: repeat;
     }
@@ -378,8 +378,8 @@ p.hero__rating {
             background-color: darken($accent, 1%);
             border-radius: $border-radius;
             padding: 1rem 4rem 2rem;
-            box-shadow: 0px 0px 10px rgba($accent, 0.9);
-            outline: 1px solid darken($accent, 3%);
+            box-shadow: 0px 0px 50px rgba($accent, 1);
+            outline: 3px solid darken($accent, 10%);
 
             img {
                 border-radius: 50%;
