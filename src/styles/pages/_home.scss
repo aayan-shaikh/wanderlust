@@ -232,7 +232,7 @@ p.hero__rating {
 #why-us {
     position: relative;
     padding: 6rem 12rem;
-    background-image: url("https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753424422/beachpattern_owx95z.jpg");
+    background-image: url("/compressed/beachpattern.avif");
     background-size: 400px 400px;
     background-repeat: repeat;
     background-color: darken($primary, 5%);
@@ -293,7 +293,7 @@ p.hero__rating {
 
 // EDGAR
 #edgar {
-    background-image: url("/pattern.jpg");
+    background-image: url("/compressed/pattern.avif");
     background-size: 400px 400px;
     background-repeat: repeat;
     background-color: darken($primary, 5%);

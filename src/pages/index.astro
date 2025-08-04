@@ -1,21 +1,43 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/pages/_home.scss";
-// import { Image } from "astro";
+// Use only what's needed (CldImage removed to reduce JS)
 import { Image } from "astro:assets";
-import { CldImage } from "astro-cloudinary";
 ---
 
 <BaseLayout
-  title="Kikos Hostel Koh Phangan | Best Party Hostel Thailand | Full Moon Party"
-  description="#1 rated party hostel in Koh Phangan! 5 minutes from Thongsala Pier, pool bar, clean AC dorms. Perfect base for Full Moon Party & island exploration. Book now!"
+  title="Kikos Hostel Koh Phangan | Best Social Hostel Thailand | Full Moon Party"
+  description="#1 rated social hostel in Koh Phangan! 5 minutes from Thongsala Pier, clean AC dorms, modern social vibe. Perfect base for Full Moon Party & island exploration. Book direct!"
 >
+  <!-- Performance hints in head via BaseLayout slots (preconnect + preload LCP) -->
+  <fragment slot="head">
+    <!-- Preconnects for faster third-party fetch -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="//res.cloudinary.com" />
+
+    <!-- Preload the LCP hero image -->
+    <link
+      rel="preload"
+      as="image"
+      href="/compressed/shoreline.avif"
+      type="image/avif"
+      fetchpriority="high"
+    />
+  </fragment>
+
   <div id="home-container">
     <section id="hero">
       <div class="image-container">
-        <CldImage
-          src="https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753424422/shoreline_quyc37.jpg"
-          alt=""
+        <img
+          src="/compressed/shoreline.avif"
+          width="1920"
+          height="1080"
+          alt="Koh Phangan shoreline view near Thong Sala"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
       </div>
       <div class="hero__content">
@@ -32,13 +54,14 @@ import { CldImage } from "astro-cloudinary";
           <a
             href="https://www.booking.com/hotel/th/kikos-hostel.en-gb.html?aid=304142&dest_id=14693517&dest_type=hotel&group_adults=2&group_children=0&label=gen173bo-10CAEoggI46AdIM1gDaKkBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBmAICqAIBuAKsisHEBsACAdICJGFmN2UyNjQ0LWQ1YTctNDJjMy1hYmE0LTFhNzU3YTMwOTNjMtgCAeACAQ-Share-ZTuD1Z%401754287045&no_rooms=1&req_adults=2&req_children=0"
           >
-            <button class="hero__cta-btn btn btn--accent"
-              >Book your bed now</button
-            >
+            <button class="hero__cta-btn btn btn--accent">
+              Book your bed now
+            </button>
           </a>
         </div>
       </div>
     </section>
+
     <section id="why-us">
       <h2>Why Choose Kiko’s?</h2>
       <div class="why-us__cards">
@@ -52,8 +75,8 @@ import { CldImage } from "astro-cloudinary";
         <div class="why-us__card">
           <h3>🧑‍🤝‍🧑 Social, Not a Party Hostel</h3>
           <p>
-            Music until midnight, poolside bar, and fellow travelers from around
-            the globe.
+            Friendly, welcoming atmosphere to meet travelers — quiet after hours
+            for great sleep.
           </p>
         </div>
         <div class="why-us__card">
@@ -73,6 +96,7 @@ import { CldImage } from "astro-cloudinary";
         </div>
       </div>
     </section>
+
     <section id="edgar">
       <div class="edgar__text">
         <h2>Meet Our Legend: Edgar!</h2>
@@ -89,270 +113,200 @@ import { CldImage } from "astro-cloudinary";
         </p>
       </div>
       <div class="edgar__image-container">
+        <!-- Prefer video over GIF for performance; if you must keep GIF, ensure width/height + lazy -->
+        <!-- Fallback: keep GIF but lazy-load -->
         <img
           src="https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753430810/edgardj_uvzxoz.gif"
+          loading="lazy"
+          decoding="async"
+          width="500"
+          height="500"
+          alt="Edgar at Kiko’s Hostel"
         />
       </div>
     </section>
+
     <section id="meet-the-team">
       <h2 class="meet-the-team__title">Meet the Kikos Team!</h2>
       <div class="cards">
         <div class="card">
-          <Image
-            src="/Fang.jpg"
-            width={500}
+          <img
+            src="/compressed/Fang.avif"
+            width="500"
             height="500"
-            alt="Kikos Team 1"
+            alt="Fang from the Kikos team"
             class="card__image"
+            loading="lazy"
+            decoding="async"
           />
           <h3 class="card__title">Fang</h3>
-          <!-- <p class="card__body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
-            consequuntur.
-          </p> -->
         </div>
         <div class="card">
-          <img src="shine.jpg" alt="Kikos Team 2" class="card__image" />
+          <img
+            src="/compressed/shine.avif"
+            width="500"
+            height="500"
+            alt="Shine from the Kikos team"
+            class="card__image"
+            loading="lazy"
+            decoding="async"
+          />
           <h3 class="card__title">Shine</h3>
-          <!-- <p class="card__body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
-            consequuntur.
-          </p> -->
         </div>
         <div class="card">
           <Image
-            src="/edgar.jpg"
+            src="/compressed/edgar.avif"
             width={500}
-            height="500"
-            alt="Kikos Team 3"
+            height={500}
+            alt="Edgar from the Kikos team"
             class="card__image"
+            loading="lazy"
           />
           <h3 class="card__title">Edgar</h3>
-          <!-- <p class="card__body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
-            consequuntur.
-          </p> -->
         </div>
       </div>
     </section>
   </div>
 
-  <!-- Load GSAP libraries with is:inline -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
-    is:inline></script>
+  <!-- Load GSAP libraries deferred to avoid render delay -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer
+  ></script>
   <script
     src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"
-    is:inline></script>
+    defer></script>
   <script
     src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
-    is:inline></script>
+    defer></script>
 
+  <!-- Idle-load animations to let LCP paint first -->
   <script is:inline>
+    function onIdle(fn) {
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(fn, { timeout: 2000 });
+      } else {
+        setTimeout(fn, 0);
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
-      // Register GSAP plugins
-      gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
+      // Hero title scramble animation (idle)
+      onIdle(() => {
+        if (!window.gsap || !window.ScrambleTextPlugin) return;
 
-      // Define the texts for the top 5 most popular languages
-      const texts = [
-        "ยินดีต้อนรับสู่สวรรค์!",
-        "Willkommen im Paradies!",
-        "Chào mừng đến với Thiên đường!",
-        "Welkom in het paradijs!",
-        "Welcome to Paradise!",
-        "Cennete hoş geldiniz!",
-        // "Добро пожаловать в рай!",
-        "Bienvenidos al paraíso!",
-        "Bienvenue au paradis!",
-        "स्वर्ग में आपका स्वागत है",
-        "欢迎来到天堂!",
-      ];
+        gsap.registerPlugin(ScrambleTextPlugin);
 
-      const title = document.querySelector(".hero__title");
+        const texts = [
+          "ยินดีต้อนรับสู่สวรรค์!",
+          "Willkommen im Paradies!",
+          "Chào mừng đến với Thiên đường!",
+          "Welkom in het paradijs!",
+          "Welcome to Paradise!",
+          "Cennete hoş geldiniz!",
+          "Bienvenidos al paraíso!",
+          "Bienvenue au paradis!",
+          "स्वर्ग में आपका स्वागत है",
+          "欢迎来到天堂!",
+        ];
 
-      if (title) {
-        let lastIndex = -1; // Track the last used index to avoid repeats
+        const title = document.querySelector(".hero__title");
+        if (!title) return;
 
+        let lastIndex = -1;
         function getRandomText() {
-          let randomIndex;
+          let i;
           do {
-            randomIndex = Math.floor(Math.random() * texts.length);
-          } while (randomIndex === lastIndex && texts.length > 1); // Avoid repeating the same text
-
-          lastIndex = randomIndex;
-          return texts[randomIndex];
+            i = Math.floor(Math.random() * texts.length);
+          } while (i === lastIndex && texts.length > 1);
+          lastIndex = i;
+          return texts[i];
         }
 
         function animateRandomText() {
           const randomText = getRandomText();
-
-          // Create individual timeline for each animation
-          const tl = gsap.timeline({
-            onComplete: () => {
-              // Wait a bit then start the next random animation
-              setTimeout(animateRandomText, 500);
-            },
-          });
-
-          tl.to(title, {
-            duration: 2,
-            scrambleText: {
-              text: randomText,
-              chars: "🐶🐾", // Scramble characters
-              // chars: "💦🕶️☀️👙🌊🇹🇭", // Scramble characters
-              revealDelay: 0,
-              tweenLength: false,
-              speed: 0.1,
-            },
-          }).to(
-            title,
-            {
-              duration: 0.5,
-              opacity: 1,
-              ease: "power2.inOut",
-              onComplete: () => {
-                gsap.set(title, { opacity: 1 });
+          gsap
+            .timeline({
+              onComplete: () => setTimeout(animateRandomText, 500),
+            })
+            .to(title, {
+              duration: 1.2,
+              scrambleText: {
+                text: randomText,
+                chars: "🐶🐾",
+                revealDelay: 0,
+                tweenLength: false,
+                speed: 0.1,
               },
-            },
-            "+=0" // Hold each text for 1 second before fading
-          );
+            });
         }
 
-        // Start the random animation cycle
-        animateRandomText();
-      }
-    });
-  </script>
-  <script>
-    const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      ) || window.innerWidth <= 768;
-
-    let ticking = false;
-    let scrollPos = 0;
-
-    function updateParallax() {
-      const scrolled = window.pageYOffset;
-      const heroSection = document.getElementById("hero");
-
-      if (!heroSection) return;
-
-      const heroHeight = heroSection.offsetHeight;
-      const imageContainer = heroSection.querySelector(".image-container");
-      const heroContent = heroSection.querySelector(".hero__content");
-
-      if (scrolled < heroHeight) {
-        if (imageContainer) {
-          // Reduce parallax intensity on mobile
-          const imageSpeed = scrolled * (isMobile ? 0.1 : 0.4);
-          imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
-        }
-
-        if (heroContent) {
-          const contentSpeed = scrolled * (isMobile ? 0.05 : 0.2);
-          heroContent.style.transform = `translate3d(0, ${contentSpeed}px, 0)`;
-        }
-      }
-
-      ticking = false;
-    }
-
-    // Scroll-driven blur animation for why-us cards
-    function updateBlurAnimation() {
-      const cards = document.querySelectorAll(".why-us__card");
-      const windowHeight = window.innerHeight;
-
-      cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-
-        // Check if card is in viewport
-        const isInViewport = rect.top < windowHeight && rect.bottom > 0;
-
-        if (!isInViewport) {
-          card.style.filter = "blur(8px)";
-          return;
-        }
-
-        // Calculate visibility percentage (0 = not visible, 1 = fully visible)
-        const visibleTop = Math.max(0, -rect.top);
-        const visibleBottom = Math.min(rect.height, windowHeight - rect.top);
-        const visibleHeight = visibleBottom - visibleTop;
-        const visibilityRatio = visibleHeight / rect.height;
-
-        // More aggressive unblur - starts unblurring when 30% visible
-        let blurAmount;
-        if (visibilityRatio > 0.3) {
-          // Rapid unblur when significantly visible
-          const unblurProgress = Math.min((visibilityRatio - 0.6) / 0.4, 1);
-          blurAmount = 8 * (1 - unblurProgress);
-        } else {
-          blurAmount = 8;
-        }
-
-        card.style.filter = `blur(${Math.max(0, blurAmount)}px)`;
+        // Start shortly after first paint
+        setTimeout(animateRandomText, 100);
       });
-    }
 
-    // Use different event handling for mobile
-    if (isMobile) {
-      // For mobile: use touchmove for immediate response
-      let touchStartY = 0;
+      // Replace scroll-blur loop with IntersectionObserver for performance
+      onIdle(() => {
+        const cards = document.querySelectorAll(".why-us__card");
+        if (!("IntersectionObserver" in window) || cards.length === 0) return;
 
-      window.addEventListener(
-        "touchstart",
-        (e) => {
-          touchStartY = e.touches[0].clientY;
-        },
-        { passive: true }
-      );
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              entry.target.style.filter = entry.isIntersecting
+                ? "blur(0px)"
+                : "blur(8px)";
+            });
+          },
+          { root: null, threshold: 0.25 }
+        );
 
-      window.addEventListener(
-        "touchmove",
-        () => {
+        cards.forEach((c) => io.observe(c));
+      });
+
+      // Parallax: attach after idle and respect reduced motion
+      onIdle(() => {
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+        if (prefersReducedMotion) return;
+
+        const heroSection = document.getElementById("hero");
+        if (!heroSection) return;
+
+        const imageContainer = heroSection.querySelector(".image-container");
+        const heroContent = heroSection.querySelector(".hero__content");
+
+        let ticking = false;
+
+        function updateParallax() {
+          const scrolled = window.pageYOffset;
+          const heroHeight = heroSection.offsetHeight;
+
+          if (scrolled < heroHeight) {
+            if (imageContainer) {
+              const imageSpeed = scrolled * 0.4;
+              imageContainer.style.transform = `translate3d(0, ${imageSpeed}px, 0)`;
+            }
+            if (heroContent) {
+              const contentSpeed = scrolled * 0.2;
+              heroContent.style.transform = `translate3d(0, ${contentSpeed}px, 0)`;
+            }
+          }
+          ticking = false;
+        }
+
+        function onScroll() {
           if (!ticking) {
             requestAnimationFrame(() => {
               updateParallax();
-              updateBlurAnimation();
+              ticking = false;
             });
             ticking = true;
           }
-        },
-        { passive: true }
-      );
+        }
 
-      // Also keep scroll listener as fallback
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              updateParallax();
-              updateBlurAnimation();
-            });
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
-    } else {
-      // Desktop scroll handling
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              updateParallax();
-              updateBlurAnimation();
-            });
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
-    }
-
-    // Initial blur animation setup
-    updateBlurAnimation();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        updateParallax();
+      });
+    });
   </script>
 </BaseLayout>
