@@ -115,14 +115,14 @@ import { Image } from "astro:assets";
       <div class="edgar__image-container">
         <!-- Prefer video over GIF for performance; if you must keep GIF, ensure width/height + lazy -->
         <!-- Fallback: keep GIF but lazy-load -->
-        <img
-          src="https://res.cloudinary.com/dnl8ggmcp/image/upload/v1753430810/edgardj_uvzxoz.gif"
+        <video
+          src="/edgardj.mp4"
+          loop
           loading="lazy"
           decoding="async"
-          width="500"
-          height="500"
-          alt="Edgar at Kiko’s Hostel"
-        />
+          width="150"
+          height="150"
+          alt="Edgar at Kiko’s Hostel"></video>
       </div>
     </section>
 
