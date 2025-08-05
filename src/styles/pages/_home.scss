@@ -238,8 +238,8 @@ p.hero__rating {
     background-color: darken($primary, 5%);
     background-blend-mode: overlay;
     box-shadow: inset 0px 0px 25px rgba(#000000, 1);
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    margin-bottom: -100px;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    margin-bottom: -50px;
 
     // Mobile fallback for background-blend-mode
     @media (max-width: 768px) {

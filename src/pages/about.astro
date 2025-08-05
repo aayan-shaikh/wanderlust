@@ -9,9 +9,9 @@ import "../styles/pages/_about.scss";
 >
   <div id="mobile-floating-nav" class="mobile-floating-nav">
     <a href="#about-story" class="float-nav-item">📖</a>
-    <a href="#about-shine" class="float-nav-item">👨‍💼</a>
+    <!-- <a href="#about-shine" class="float-nav-item">👨‍💼</a> -->
     <a href="#special" class="float-nav-item">🏠</a>
-    <a href="#pro-tip" class="float-nav-item">💡</a>
+    <!-- <a href="#pro-tip" class="float-nav-item">💡</a> -->
   </div>
 
   <div id="about-container">
@@ -28,7 +28,7 @@ import "../styles/pages/_about.scss";
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="#about-shine" class="nav-link">The owner</a>
           <ul class="sub-nav">
             <li>
@@ -38,14 +38,14 @@ import "../styles/pages/_about.scss";
               <a href="#shine-journey" class="sub-link">His Journey</a>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="#special" class="nav-link">What Makes Us Special</a>
           <ul class="sub-nav">
             <li>
               <a href="#accommodation" class="sub-link">Accommodation</a>
             </li>
-            <li><a href="#pro-tip" class="sub-link">Pro Tip</a></li>
+            <!-- <li><a href="#pro-tip" class="sub-link">Pro Tip</a></li> -->
           </ul>
         </li>
       </ul>
@@ -56,21 +56,20 @@ import "../styles/pages/_about.scss";
         <h1>The Kiko’s Story</h1>
         <p class="german">
           Kiko isn’t just our name - Kiko is a beloved dog who’s been part of
-          our family since before our sister hostel “Wanderlust” even opened.
-          She greeted backpackers, kept staff company during late-night paint
-          jobs, and somehow managed to make everyone feel at home. When we
-          created this space, we knew exactly what we wanted it to feel like:
-          warm, friendly, and welcoming - just like Kiko.
+          our family. She greeted backpackers, kept staff company during
+          late-night paint jobs, and somehow managed to make everyone feel at
+          home. When we created this space, we knew exactly what we wanted it to
+          feel like: warm, friendly, and welcoming - just like Kiko.
         </p>
         <p>
           Kiko’s Hostel is our tribute to that spirit. We’re newly decorated,
           thoughtfully designed, and located a short walk from the main pier,
           Thong Sala Night Market, Phangan Food Court, Art Market, and the
-          beach. Come for the comfort, stay for the community - and if you make
-          it over to Wanderlust, say hi to the original Kiko for us :)
+          beach. Come for the comfort, stay for the community and say hi to Kiko
+          for us :)
         </p>
         <img
-          src="/compressed/hostel-pictures/outside.avif"
+          src="/compressed/hostel-pictures/mainroad.avif"
           alt="Kiko’s Hostel common areas"
         />
 
@@ -102,7 +101,7 @@ import "../styles/pages/_about.scss";
         </div>
       </section>
 
-      <section id="about-shine">
+      <!-- <section id="about-shine">
         <div class="shine__image">
           <img src="/compressed/shine.avif " alt=" Founder portrait" />
         </div>
@@ -125,7 +124,7 @@ import "../styles/pages/_about.scss";
             friends and a full heart, we’ve done our job.”
           </p>
         </div>
-      </section>
+      </section> -->
 
       <section id="special">
         <h2>What Makes Us Special</h2>
@@ -143,7 +142,7 @@ import "../styles/pages/_about.scss";
             >
           </div>
 
-          <div class="card card-2">
+          <!-- <div class="card card-2">
             <img
               src="/compressed/hostel-pictures/corridor.avif"
               alt="Female-only dorms"
@@ -152,7 +151,7 @@ import "../styles/pages/_about.scss";
             <p>Comfortable, secure spaces (subject to availability)</p>
             <a href="/contact"><button class="btn btn--primary">Book</button></a
             >
-          </div>
+          </div> -->
 
           <div class="card card-3">
             <img
@@ -179,14 +178,14 @@ import "../styles/pages/_about.scss";
             </p>
           </div>
 
-          <div id="pro-tip" class="card card-tip">
+          <!-- <div id="pro-tip" class="card card-tip">
             <h4>Smart Timing</h4>
             <p>
               For calmer vibes and better rates, visit between Full Moon
               periods. During Full Moon, the island is busier and prices are
               higher.
             </p>
-          </div>
+          </div> -->
         </div>
       </section>
       <!-- <div id="about-cta">
@@ -199,7 +198,7 @@ import "../styles/pages/_about.scss";
 
 <script>
   // Highlight active section in floating nav
-  const sections = ["about-story", "about-shine", "special", "pro-tip"];
+  const sections = ["about-story", "special"];
   const floatNavItems = document.querySelectorAll(".float-nav-item");
 
   const observer = new IntersectionObserver(

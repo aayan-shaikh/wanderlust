@@ -61,9 +61,20 @@ body {
         .hero-subtitle {
             font-size: 1.2rem;
             color: $text-secondary;
+
+        }
+
+        #discount {
+            font-size: 2rem !important;
+            color: $accent;
+            background: $primary;
+            border-radius: $border-radius;
+
         }
     }
 }
+
+
 
 // Main contact section
 #contact-main {
