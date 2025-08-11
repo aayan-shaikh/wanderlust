@@ -25,15 +25,84 @@ import "../styles/pages/_contact.scss";
       <div class="contact-grid">
         <div class="contact-form-section">
           <h2>Send us a Message</h2>
-          <form class="contact-form">
+
+          <!-- Success Message -->
+          <div
+            id="form-success"
+            class="form-message success-message"
+            style="display: none;"
+          >
+            <h3>🎉 Message Sent Successfully!</h3>
+            <p>
+              Thank you for contacting us! We'll get back to you within 24
+              hours.
+            </p>
+          </div>
+
+          <!-- Error Message -->
+          <div
+            id="form-error"
+            class="form-message error-message"
+            style="display: none;"
+          >
+            <h3>❌ Something went wrong</h3>
+            <p>
+              Please try again or contact us directly at info@kikoshostel.com
+            </p>
+          </div>
+
+          <form
+            class="contact-form"
+            name="contact-form"
+            method="POST"
+            action="/contact-success"
+            netlify
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+          >
+            <!-- Hidden fields for Netlify -->
+            <input type="hidden" name="form-name" value="contact-form" />
+
+            <!-- Honeypot field for spam protection -->
+            <div style="display: none;">
+              <label
+                >Don't fill this out if you're human:
+                <input name="bot-field" />
+              </label>
+            </div>
+
             <div class="form-group">
               <label for="name">Name *</label>
-              <input type="text" id="name" name="name" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-describedby="name-error"
+              />
+              <span class="error-text" id="name-error"></span>
             </div>
 
             <div class="form-group">
               <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-describedby="email-error"
+              />
+              <span class="error-text" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+66 XX XXX XXXX"
+              />
             </div>
 
             <div class="form-group">
@@ -42,17 +111,31 @@ import "../styles/pages/_contact.scss";
                 type="text"
                 id="dates"
                 name="dates"
-                placeholder="When are you visiting?"
+                placeholder="When are you visiting? (e.g., Dec 15-20, 2024)"
               />
             </div>
 
             <div class="form-group">
               <label for="guests">Number of Guests</label>
               <select id="guests" name="guests">
+                <option value="">Select number of guests</option>
                 <option value="1">1 Guest</option>
                 <option value="2">2 Guests</option>
                 <option value="3">3 Guests</option>
-                <option value="4">4+ Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5+">5+ Guests</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="inquiry-type">Type of Inquiry</label>
+              <select id="inquiry-type" name="inquiry-type">
+                <option value="">Select inquiry type</option>
+                <option value="booking">Booking Inquiry</option>
+                <option value="volunteer">Volunteer Opportunity</option>
+                <option value="general">General Question</option>
+                <option value="event">Event/Group Booking</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
@@ -66,7 +149,25 @@ import "../styles/pages/_contact.scss";
               ></textarea>
             </div>
 
-            <button type="submit" class="btn">Send Message 🚀</button>
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="newsletter"
+                  value="yes"
+                  id="newsletter"
+                />
+                <span class="checkmark"></span>
+                Subscribe to our newsletter for special offers and island updates
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary" id="submit-btn">
+              <span class="btn-text">Send Message 🚀</span>
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner"></span> Sending...
+              </span>
+            </button>
           </form>
         </div>
 
@@ -74,13 +175,14 @@ import "../styles/pages/_contact.scss";
           <div class="contact-card">
             <h3>📍 Find Us</h3>
             <p>
-              99/78 moo1 Thong Sala Koh Phangan,
-              <br /> Surat Thani, Thailand 84280<br />
+              99/78 moo1 Thong Sala Koh Phangan,<br />
+              Surat Thani, Thailand 84280
             </p>
             <iframe
-              style="border:0"
+              style="border:0; width: 100%; height: 200px; border-radius: 8px;"
               loading="lazy"
               allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed/v1/view?zoom=17&center=9.7083%2C99.9944&key=AIzaSyAOl5QxvygrO8AtpeqREZtZv6zUPotsPKw"
             ></iframe>
           </div>
@@ -88,58 +190,204 @@ import "../styles/pages/_contact.scss";
           <div class="contact-card">
             <h3>📞 Call Us</h3>
             <p>
-              +66 97 223 8054<br />
+              <a href="tel:+66972238054">+66 97 223 8054</a><br />
               Available 24/7 for emergencies
             </p>
           </div>
 
           <div class="contact-card">
             <h3>✉️ Email Us</h3>
-            <p>info@kikoshostel.com</p>
-          </div>
-
-          <div class="contact-card">
-            <h3>🕒 Reception Hours (9am to 10pm)</h3>
             <p>
-              <!-- ✓ Check-in from 14:00 to 22:00<br />
-              ✓ Check-out until 12:00<br /> -->
-              <em>
-                <br />
-                If you'd like to request an early or late check-in or check-out,
-                you can email us<br />
-              </em>
-              <br />
-              <strong>
-                Please note that special requests cannot be guaranteed. If early
-                or late check-in or check-out is essential to your travel plans,
-                we recommend checking the cancellation options before you book.
-              </strong>
+              <a href="mailto:info@kikoshostel.com">info@kikoshostel.com</a>
             </p>
           </div>
 
-          <!-- <div class="contact-card social-card">
-            <h3>🌐 Follow Us</h3>
-            <div class="social-links">
-              <a
-                href="https://www.instagram.com/Kikoskohphangan/"
-                class="social-link">📷 Instagram</a
-              >
-            </div>
-          </div> -->
+          <div class="contact-card">
+            <h3>🕒 Reception Hours</h3>
+            <p>
+              <strong>9:00 AM - 10:00 PM daily</strong><br />
+              <em>
+                Early or late check-in/out available upon request. Please email
+                us in advance.
+              </em><br /><br />
+              <small>
+                <strong>Note:</strong> Special requests cannot be guaranteed. If
+                specific timing is essential, please check our cancellation policy
+                before booking.
+              </small>
+            </p>
+          </div>
         </div>
       </div>
     </section>
+
     <section id="contact-cta">
       <div class="cta-content">
         <h2>Ready to Book? 🎉</h2>
         <p>Skip the form and book directly through our partners!</p>
         <div class="cta-buttons">
           <a
-            href="https://www.booking.com/Share-mpjb3kT"
-            class="btn btn--primary">Booking.com</a
+            href="https://www.booking.com/Share-athlvM"
+            class="btn btn--primary"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            Booking.com
+          </a>
         </div>
       </div>
     </section>
   </div>
+
+  <script>
+    // Form handling for better UX
+    const form = document.querySelector(".contact-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const btnText = submitBtn.querySelector(".btn-text");
+    const btnLoading = submitBtn.querySelector(".btn-loading");
+
+    // Check if we're on the success page
+    if (
+      window.location.pathname === "/contact-success" ||
+      window.location.search.includes("success=true")
+    ) {
+      const successMsg = document.getElementById("form-success");
+      if (successMsg) {
+        successMsg.style.display = "block";
+        form.style.display = "none";
+      }
+    }
+
+    form?.addEventListener("submit", function (e) {
+      // Show loading state
+      btnText.style.display = "none";
+      btnLoading.style.display = "inline-flex";
+      submitBtn.disabled = true;
+
+      // Basic form validation
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (!name) {
+        showError("name-error", "Name is required");
+        resetButton();
+        e.preventDefault();
+        return;
+      }
+
+      if (!email) {
+        showError("email-error", "Email is required");
+        resetButton();
+        e.preventDefault();
+        return;
+      }
+
+      // Clear any previous errors
+      clearErrors();
+
+      // Let Netlify handle the form submission
+      // The form will redirect to the action URL automatically
+    });
+
+    function showError(elementId, message) {
+      const errorElement = document.getElementById(elementId);
+      if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = "block";
+      }
+    }
+
+    function clearErrors() {
+      const errorElements = document.querySelectorAll(".error-text");
+      errorElements.forEach((el) => {
+        el.textContent = "";
+        el.style.display = "none";
+      });
+    }
+
+    function resetButton() {
+      btnText.style.display = "inline";
+      btnLoading.style.display = "none";
+      submitBtn.disabled = false;
+    }
+
+    // Auto-clear errors when user starts typing
+    const inputs = form?.querySelectorAll("input, textarea, select");
+    inputs?.forEach((input) => {
+      input.addEventListener("input", clearErrors);
+    });
+  </script>
+
+  <style>
+    .form-message {
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #059669;
+    }
+
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #dc2626;
+    }
+
+    .error-text {
+      color: #dc2626;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .btn-loading {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .contact-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </BaseLayout>

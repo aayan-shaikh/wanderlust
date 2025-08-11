@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Message Sent - Kiko's Hostel Koh Phangan"
+  description="Thank you for contacting Kiko's Hostel! We'll get back to you soon."
+>
+  <div
+    style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;"
+  >
+    <div>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">🎉</h1>
+      <h2>Message Sent Successfully!</h2>
+      <p style="font-size: 1.2rem; margin: 1.5rem 0;">
+        Thank you for contacting Kiko's Hostel!<br />
+        We'll get back to you within 24 hours.
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="/" class="btn btn--primary">Back to Home</a>
+        <a
+          href="/about"
+          class="btn btn--accent"
+          style="margin-left: 1rem; color: black">Learn More About Us</a
+        >
+      </div>
+    </div>
+  </div>
+</BaseLayout>
